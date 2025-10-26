@@ -60,8 +60,7 @@ body{
 .thumb:hover{ transform:scale(1.02) }
 .lightbox{ position:fixed; inset:0; background:rgba(0,0,0,.75); display:grid; place-items:center; z-index:10; }
 .lightbox img{ max-width:min(92vw,1000px); max-height:80vh; border-radius:12px }
-.lightbox .close{ position:absolute; top:14px; right:18px; font-size:2rem; background:transparent; color:white; border:none; cursor:pointer; }
-
+.lightbox .close{ position:absolute; top:14px; right:18px; font-size:2rem; background:transparent; color:white; border:none; cursor:.lightbox[hidden] { display: none !important; }
 /* Letters */
 .letters{padding:3rem 1rem; max-width:1100px; margin:auto; text-align:center}
 .letter-grid{display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; margin-top:1rem}
