@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Doğum Günün Kutlu Olsun, Şükran’ım 💖</title>
+  <meta name="description" content="Şükran’ım için: Lavinia dizeleri, anılarımız, mektuplar ve küçük sürprizlerle dolu doğum günü sitesi." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&family=Scheherazade+New:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <canvas id="hearts"></canvas>
+
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="couplet">
+        <em>“Sana gitme demeyeceğim,<br> Ama gitme Lavinia.”</em>
+        <div class="author">— Özdemir Asaf</div>
+      </div>
+      <h1>Doğum Günün Kutlu Olsun <span id="recipientName">Şükran’ım</span> 🌸</h1>
+
+      <div class="countdown" aria-live="polite">
+        <div class="cd-item"><span id="days">00</span><small>Gün</small></div>
+        <div class="cd-item"><span id="hours">00</span><small>Saat</small></div>
+        <div class="cd-item"><span id="minutes">00</span><small>Dakika</small></div>
+        <div class="cd-item"><span id="seconds">00</span><small>Saniye</small></div>
+      </div>
+
+      <div class="cta">
+        <button id="playBtn" class="primary">Şarkımızı Çal 🎵</button>
+        <button id="streamBtn" class="secondary">Şarkıyı Aç (Resmî) ▶️</button>
+        <a href="#gallery" class="secondary">Fotoğraflarımıza Git 📸</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Music placeholder -->
+  <audio id="bgMusic" preload="auto" loop>
+    <source src="assets/iki-gozumun-cicegi.mp3" type="audio/mpeg">
+  </audio>
+
+  <main>
+    <!-- Notes -->
+    <section class="notes" id="notes">
+      <h2>Kısa Notlarım 💌</h2>
+      <div class="note-grid">
+        <article class="note">
+          <h3>İlk gün</h3>
+          <p>İlk karşılaştığımız an, zaman yavaşladı; kalbim sesini sana bıraktı.</p>
+        </article>
+        <article class="note">
+          <h3>Teşekkür</h3>
+          <p>Gülüşün en sevdiğim yerim oldu. Her günüme renk kattın, iyi ki varsın.</p>
+        </article>
+        <article class="note">
+          <h3>Yeni yaş</h3>
+          <p>Yeni yaşın, kalbin kadar güzel geçsin. Hep el ele, hep yan yana…</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Timeline -->
+    <section class="timeline" id="timeline">
+      <h2>Bizim Küçük Zaman Yolculuğumuz ⏳</h2>
+      <ul class="tl">
+        <li>
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <h3>Tanıştığımız Gün</h3>
+            <p>[Tarih] — “Merhaba” dediğin an, her şey değişti.</p>
+          </div>
+        </li>
+        <li>
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <h3>İlk Fotoğrafımız</h3>
+            <p>[Tarih] — O fotoğraf, gülüşlerimizin başlangıcıydı.</p>
+          </div>
+        </li>
+        <li>
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <h3>İlk Yolculuğumuz</h3>
+            <p>[Tarih] — Her yer güzeldi; çünkü sen vardın.</p>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Gallery -->
+    <section class="gallery" id="gallery">
+      <h2>Fotoğraf Galerimiz 📷</h2>
+      <div class="grid">
+        <img src="assets/ilk_bulusmamiz.jpg" alt="İlk Buluşmamız" class="thumb" />
+        <img src="assets/dogum_gunu_notu.jpg" alt="İyi ki doğdun notu" class="thumb" />
+        <img src="assets/kirmizi_pasta.jpg" alt="Kırmızı pasta" class="thumb" />
+        <img src="assets/biz_1.jpg" alt="Birlikte gülüşümüz" class="thumb" />
+        <img src="assets/el_optme.jpg" alt="El öpme anı" class="thumb" />
+        <img src="assets/davette_biz.jpg" alt="Davette birlikte" class="thumb" />
+      </div>
+      <div id="lightbox" class="lightbox" aria-modal="true" role="dialog" hidden>
+        <button class="close" id="lbClose" aria-label="Kapat">×</button>
+        <img id="lbImg" alt="Büyük görüntü" />
+      </div>
+    </section>
+
+    <!-- Letters Section -->
+    <section class="letters" id="letters">
+      <h2>Mektuplarım ✉️</h2>
+      <div class="letter-grid">
+        <div class="envelope" data-target="loveLetter">
+          <div class="flap"></div>
+          <div class="seal">💞</div>
+          <span class="label">Aşk Mektubu</span>
+        </div>
+        <div class="envelope" data-target="dreamLetter">
+          <div class="flap"></div>
+          <div class="seal">🌙</div>
+          <span class="label">Hayal</span>
+        </div>
+      </div>
+
+      <div class="letter-modal" id="loveLetter" hidden>
+        <div class="paper">
+          <button class="close-letter" aria-label="Kapat">×</button>
+          <h3 style="font-family:'Scheherazade New', serif; font-weight:700; margin-top:0;">Mektubum</h3>
+          <p style="font-family:'Scheherazade New', serif; line-height:1.9; font-size:1.15rem">
+          Ey gözlerimin nûru Şükran’ım,<br/>
+          Ruhuma bir bahar gibi doğdun. Gözlerin her bakışta gönlümde güller açtı; bil ki bu kalp sensizliğe bir lahza dahi tahammül etmez.<br/><br/>
+          Adınla başlar duam; seninle diner fırtınalarım. Varlığın, gönül hânemin en kutlu misafiridir.<br/><br/>
+          Âşıkâne hürmetlerimle,<br/>
+          <strong>Bekir Can</strong>
+          </p>
+        </div>
+      </div>
+
+      <div class="letter-modal" id="dreamLetter" hidden>
+        <div class="paper">
+          <button class="close-letter" aria-label="Kapat">×</button>
+          <h3 style="font-family:'Scheherazade New', serif; font-weight:700; margin-top:0;">Hayal</h3>
+          <p style="font-family:'Scheherazade New', serif; line-height:1.9; font-size:1.15rem">
+          Bir su kenarında, göğe değen kavakların önünde mütevazı bir hâne… Yanı başında çiçeklerle bezeli bir bahçe.<br/>
+          Kapısında biz, gönlümüz bir; etrafımızda üç yavru—sevinçleri rüzgâr gibi, kahkahaları su sesi gibi…<br/>
+          O gün, akşamın serinliğinde çaylarımız tüterken, gölgesinde dinlendiğimiz ağacın dalları şahit olsun: Bu hayali birlikte büyüteceğiz, inşâallah.
+          </p>
+          <figure style="margin:1rem 0 0">
+            <img src="assets/hayal_aile_sahne.svg" alt="Su kenarında bahçeli ev ve üç çocuklu aile hayali" style="width:100%;max-width:700px;border-radius:12px;border:1px solid rgba(255,255,255,.15)"/>
+            <figcaption style="color:#c7c7d1; font-size:.95rem; margin-top:.5rem">Su kıyısında bahçeli bir ev — üç yavruyla uzaklardan…</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Surprise -->
+    <section class="surprise" id="surprise">
+      <h2>Minik Sürpriz 🎁</h2>
+      <p>Hazırsan butona tıkla…</p>
+      <button id="surpriseBtn" class="primary">Sürprizi Göster ✨</button>
+      <div id="surpriseBox" class="surprise-box" hidden>
+        <h3>Sana Mektubum</h3>
+        <p>Sevgilim, bu satırları okurken yüzünde kocaman bir gülümseme olsun istiyorum…</p>
+        <a class="secondary" href="assets/video.mp4" target="_blank">Opsiyonel: Küçük bir video</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Sevgiyle hazırlandı — <span id="yourName">Bekir Can</span> 💞</p>
+  </footer>
+
+  <script src="script.js"></script>
+
+  <!-- Official Stream Modal -->
+  <div class="letter-modal" id="streamModal" hidden>
+    <div class="paper">
+      <button class="close-letter" aria-label="Kapat">×</button>
+      <h3 style="margin-top:0">İki Gözümün Çiçeği — Resmî Yayın</h3>
+      <p style="margin:.4rem 0 .8rem;color:#555">Aşağıya <strong>Spotify</strong> ya da <strong>YouTube</strong> paylaşım bağlantısını yapıştır ve <em>Aç</em> de. Link tarayıcında saklanır.</p>
+      <div style="display:flex; gap:.5rem; flex-wrap:wrap; align-items:center">
+        <input id="streamUrlInput" placeholder="https://open.spotify.com/track/... veya https://www.youtube.com/watch?v=..." style="flex:1; padding:.6rem; border-radius:10px; border:1px solid rgba(0,0,0,.15)">
+        <button id="openStream" class="primary">Aç</button>
+        <button id="clearStream" class="secondary">Sıfırla</button>
+      </div>
+      <div style="margin-top:1rem">
+        <iframe id="streamFrame" width="100%" height="320" style="border:0; border-radius:12px" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
