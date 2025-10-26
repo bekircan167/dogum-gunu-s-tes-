@@ -39,25 +39,7 @@ setInterval(updateCountdown, 1000);
 
 // ===== 
 
-// ===== Lightbox =====
-const thumbs   = document.querySelectorAll('.thumb');
-const lightbox = document.getElementById('lightbox');
-const lbImg    = document.getElementById('lbImg');
-const lbClose  = document.getElementById('lbClose');
 
-function hideLb(){
-  lightbox.setAttribute('hidden','');
-  lbImg.removeAttribute('src');
-}
-
-thumbs.forEach(img => img.addEventListener('click', () => {
-  lbImg.src = img.src;
-  lightbox.removeAttribute('hidden');
-}));
-
-lbClose.addEventListener('click', hideLb);
-lightbox.addEventListener('click', (e)=>{ if(e.target === lightbox) hideLb(); });
-document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') hideLb(); });
 // ===== Surprise reveal =====
 const surpriseBtn = document.getElementById('surpriseBtn');
 const surpriseBox = document.getElementById('surpriseBox');
