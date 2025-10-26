@@ -37,19 +37,27 @@ function updateCountdown(){
 updateCountdown();
 setInterval(updateCountdown, 1000);
 
+// ===== 
+
 // ===== Lightbox =====
-const thumbs = document.querySelectorAll('.thumb');
+const thumbs   = document.querySelectorAll('.thumb');
 const lightbox = document.getElementById('lightbox');
-const lbImg = document.getElementById('lbImg');
-const lbClose = document.getElementById('lbClose');
+const lbImg    = document.getElementById('lbImg');
+const lbClose  = document.getElementById('lbClose');
+
+function hideLb(){
+  lightbox.setAttribute('hidden','');
+  lbImg.removeAttribute('src');
+}
 
 thumbs.forEach(img => img.addEventListener('click', () => {
   lbImg.src = img.src;
-  lightbox.hidden = false;
+  lightbox.removeAttribute('hidden');
 }));
-lbClose.addEventListener('click', () => { lightbox.hidden = true; lbImg.src = ''; });
-lightbox.addEventListener('click', (e)=>{ if(e.target === lightbox){ lightbox.hidden = true; lbImg.src=''; } });
 
+lbClose.addEventListener('click', hideLb);
+lightbox.addEventListener('click', (e)=>{ if(e.target === lightbox) hideLb(); });
+document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') hideLb(); });
 // ===== Surprise reveal =====
 const surpriseBtn = document.getElementById('surpriseBtn');
 const surpriseBox = document.getElementById('surpriseBox');
